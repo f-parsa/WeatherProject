@@ -1,0 +1,60 @@
+.border {
+    background: transparent;
+    border: 1px solid;
+    border-radius: 10px;
+  }
+  .height {
+    height: 700px;
+  }
+  .width {
+    width: 80%;
+  }
+  
+  .container {
+    display: flex;
+    margin-top: 1%;
+    justify-content: center;
+  }
+  .background {
+    background-image: url("../images/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .blurPic {
+    backdrop-filter: blur(7px);
+  }
+  .tollbarImage {
+    width: 30px;
+    cursor: pointer;
+  }
+  .mapImage {
+    width: 50px;
+    height: 50px;
+  }
+  .currentLogo {
+    width: 80px;
+    height: 80px;
+  }
+  .bold {
+    font-family: "Monoton", cursive;
+    color: white;
+    font-size: 50px;
+  }
+  .thin {
+    font-weight: lighter;
+    font-size: 20px;
+  }
+  .textFont {
+    font-family: "Amaranth", sans-serif;
+    color: white;
+    font-size: 25px;
+  }
+  .statusFont {
+    font-size: 15px;
+    color: wheat;
+    font-family: "Amaranth", sans-serif;
+  }
+  .statusFontSmall {
+    font-size: 10px;
+  }
+  
