@@ -43,6 +43,10 @@ function getDateAndTime(){
     let sunset = new Date(response.data.sys.sunset * 1000);
     let sunsetTag = document.querySelector("#sunsetTag");
     sunsetTag.innerHTML = sunset.getHours() + ":" + sunset.getMinutes() + " PM";
+
+    let weatherIconTag = document.querySelector("#weatherIcon");
+    let iconNum = response.data.weather[0].icon;
+    weatherIconTag.setAttribute("src", `http://openweathermap.org/img/wn/${iconNum}@2x.png`)
   }
   
   function getTemperature(event){
