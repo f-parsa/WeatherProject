@@ -91,6 +91,9 @@ function getDateAndTime(){
     let fahrenheit = (celcius * 9/5) + 32;
     let temperatureTag = document.querySelector("#temperatureTag");
     temperatureTag.innerHTML = Math.round(fahrenheit);
+
+    fahrenheitTag.classList.add("active");
+    celciusTag.classList.remove("active");
   }
 
   function convertTocelcius(event){
@@ -101,11 +104,14 @@ function getDateAndTime(){
     }else{
       temperatureTag.innerHTML = celcius;
     }
+
+    celciusTag.classList.add("active");
+    fahrenheitTag.classList.remove("active");
   }
   let locationTag = document.querySelector("#locationTag");
   locationTag.addEventListener("click", currentLocation);
 
-  let celcius = null;
+  let celcius = 00;
 
   let fahrenheitTag = document.querySelector("#fahrenheitTag");
   fahrenheitTag.addEventListener("click", convertTofahrenheit);
