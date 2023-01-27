@@ -3,21 +3,34 @@ function getDateAndTime(){
     let weekDays= ["Sunday", "Monday", "Tuesday", "Wednsday", "Tursday","Friday", "Saturday"];
     let currentDate = new Date();
     let day = weekDays[currentDate.getDay()];
-    let dateAndTime =day + " " + currentDate.getHours() + ":" + currentDate.getMinutes();
+    let hours = currentDate.getHours();
+    if (hours < 10){
+      hours = `0${hours}`;
+    }
+    let minutes = currentDate.getMinutes();
+    if (minutes < 10){
+      minutes = `0${minutes}`;
+    }
+    let dateAndTime =day + " " + hours + ":" + minutes;
     return dateAndTime
   }
   let currentDateTag = document.querySelector("#currentDateTime");
   currentDateTag.innerHTML = getDateAndTime();
   
-  //Get City And Temperature
+  //Get City And Temperature and ...
   let apiKey = "1dbf926d3b4417bf379db7043bec1047";
   
   function showInformation(response){
     console.log(response);
     let cityTag = document.querySelector("#cityTag");
     let temperatureTag = document.querySelector("#temperatureTag");
-    let degree = Math.round(response.data.main.temp);
-    temperatureTag.innerHTML = degree;
+    celcius = Math.round(response.data.main.temp);
+    if (celcius < 10){
+      temperatureTag.innerHTML = `0${celcius}`;
+    }else{
+
+      temperatureTag.innerHTML = celcius;
+    }
     cityTag.innerHTML = response.data.name;
     
     let description = document.querySelector("#descriptionTag");
@@ -37,7 +50,6 @@ function getDateAndTime(){
   
     let sunriseTag = document.querySelector("#sunriseTag");
     let sunrise = new Date(response.data.sys.sunrise * 1000);
-    console.log(sunrise);
     sunriseTag.innerHTML = sunrise.getHours() + ":" + sunrise.getMinutes() + " AM";
   
     let sunset = new Date(response.data.sys.sunset * 1000);
@@ -47,13 +59,16 @@ function getDateAndTime(){
     let weatherIconTag = document.querySelector("#weatherIcon");
     let iconNum = response.data.weather[0].icon;
     weatherIconTag.setAttribute("src", `http://openweathermap.org/img/wn/${iconNum}@2x.png`)
+
+    let pressureTag = document.querySelector("#pressureTag");
+    pressureTag.innerHTML = response.data.main.pressure;
   }
   
   function getTemperature(event){
     event.preventDefault();
     let searchInput = document.querySelector("#searchText");
     let city = searchInput.value.toLowerCase().trim();    
-    let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+    let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&current.uvi&units=metric&appid=${apiKey}`;
     axios.get(apiURL).then(showInformation);
   }
   
@@ -64,12 +79,36 @@ function getDateAndTime(){
   function handlePosition(position){
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
-    let apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
+    let apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&current.uvi&units=metric&appid=${apiKey}`;
     axios.get(apiURL).then(showInformation);
   }
   function currentLocation(event){
     event.preventDefault();
     navigator.geolocation.getCurrentPosition(handlePosition);
   }
+  function convertTofahrenheit(event){
+    event.preventDefault();
+    let fahrenheit = (celcius * 9/5) + 32;
+    let temperatureTag = document.querySelector("#temperatureTag");
+    temperatureTag.innerHTML = Math.round(fahrenheit);
+  }
+
+  function convertTocelcius(event){
+    event.preventDefault();
+    let temperatureTag = document.querySelector("#temperatureTag");
+    if (celcius < 10){
+      temperatureTag.innerHTML = `0${celcius}`;
+    }else{
+      temperatureTag.innerHTML = celcius;
+    }
+  }
   let locationTag = document.querySelector("#locationTag");
   locationTag.addEventListener("click", currentLocation);
+
+  let celcius = null;
+
+  let fahrenheitTag = document.querySelector("#fahrenheitTag");
+  fahrenheitTag.addEventListener("click", convertTofahrenheit);
+
+  let celciusTag = document.querySelector("#celciusTag");
+  celciusTag.addEventListener("click", convertTocelcius);

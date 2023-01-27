@@ -67,7 +67,7 @@
           style="width: 30%;"
         >
           <div class="d-flex blurPic flex-column m-2 p-1 border w-99 h-50">
-            <div class="d-flex m-1 p-1 justify-content-between">
+            <div class="d-flex m-1 p-1 justify-content-around">
               <div class="align-self-start">
                 <img
                   src="images/rain.png"
@@ -76,9 +76,9 @@
                   id="weatherIcon"
                 />
               </div>
-              <div class="bold align-self-end m-3 position-relative">
-                <span id="temperatureTag">18</span>
-                <span class="position-absolute top-0 start-100 thin">°C</span>
+              <div class="bold align-self-end position-relative">
+                <div id="temperatureTag">00</div>
+                <span class="position-absolute top-0 start-100 thin translate-middle"><a href="#" id="celciusTag" class="m-1 active">°C</a><a href="#" id="fahrenheitTag">°F</a></span>
               </div>
             </div>
             <div class="d-flex ms-2 textFont" id="descriptionTag">
@@ -148,8 +148,8 @@
                     class="d-flex m-1 p-1 justify-content-center"
                     style="height: 15%;"
                   >
-                    <span id="windSpeedTag">7.90</span>
-                    <span>km/h</span>
+                    <span id="windSpeedTag">7.90 </span>
+                    <span>&nbsp;km/h</span>
                   </div>
                 </div>
                 <div
@@ -160,10 +160,10 @@
                     <div>Humidity</div>
                     <div>
                       <span id="humidityTag">84</span>
-                      <span>%</span>
+                      <span> &nbsp;%</span>
                     </div>
                   </div>
-                  <div class="statusFontSmall">Dew point is 27°</div>
+                  <!-- <div class="statusFontSmall">Dew point is 27°</div> -->
                 </div>
               </div>
             </div>
@@ -175,14 +175,14 @@
                   class="d-flex flex-column border m-1 p-2 statusFont justify-content-between align-items-stretch"
                   style="height: 70%;"
                 >
-                  <div style="height: 15%;">UV Index</div>
+                  <div style="height: 15%;">Pressure</div>
                   <div style="height: 60%;">Diagram</div>
                   <div
                     class="d-flex m-1 p-1 justify-content-center"
                     style="height: 15%;"
                   >
-                    <span id="windSpeedTag">5.50</span>
-                    <span>UV</span>
+                    <span id="pressureTag">1026</span>
+                    <span> &nbsp; PA</span>
                   </div>
                 </div>
                 <div
@@ -192,13 +192,13 @@
                   <div class="d-flex flex-column justify-content-between">
                     <div>Visibility</div>
                     <div>
-                      <span id="visibilityTag">03</span>
-                      <span>km</span>
+                      <span id="visibilityTag">03 </span>
+                      <span>&nbsp;km</span>
                     </div>
                   </div>
-                  <div class="statusFontSmall">
+                  <!-- <div class="statusFontSmall">
                     Haze is affecting visibility
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
@@ -231,9 +231,9 @@
                       <span>°</span>
                     </div>
                   </div>
-                  <div class="statusFontSmall">
+                  <!-- <div class="statusFontSmall">
                     Humidity is making it feel hotter
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
