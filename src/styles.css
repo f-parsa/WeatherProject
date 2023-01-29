@@ -16,7 +16,7 @@
     justify-content: center;
   }
   .background {
-    background-image: url("../images/background.jpg");
+    background-image: url("../images/back.jpg");
     background-size: cover;
     background-repeat: no-repeat;
   }
@@ -66,4 +66,7 @@
   .active:hover {
     text-decoration: none;
     color: white;
+  }
+  .weatherIcon {
+    width: 15%;
   }
