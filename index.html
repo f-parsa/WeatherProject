@@ -70,7 +70,7 @@
             <div class="d-flex m-1 p-1 justify-content-around">
               <div class="align-self-start">
                 <img
-                  src="images/rain.png"
+                  src="images/weatherIcon.png"
                   alt="currentLogo"
                   class="currentLogo mt-4 ms-3"
                   id="weatherIcon"
@@ -110,7 +110,7 @@
           </form>
           <div class="d-flex blurPic flex-column m-2 p-1 border w-99 h-50" id="forecastTag">
             <div class="d-flex justify-content-around flex-fill border m-1 p-1">
-              <img src="/images/rain.png" alt="weatherIcon1" class="weatherIcon">
+              <img src="/images/weatherIcon.png" alt="weatherIcon1" class="weatherIcon">
               <span id="weekDay1">Thu</span>
               <span id="maxTag">18°</span>
               <span id="minTag">12°</span>
@@ -145,11 +145,13 @@
                   class="d-flex flex-column border m-1 p-2 statusFont justify-content-between align-items-stretch"
                   style="height: 70%;"
                 >
-                  <div style="height: 15%;">wind status</div>
-                  <div style="height: 60%;">Diagram</div>
+                  <div style="height: 10%;" class="mb-2">wind status</div>
+                  <div style="height: 80%;">
+                    <canvas id="windChart" style="width:100%;max-width:250px;height: 100%;"></canvas>
+                  </div>
                   <div
-                    class="d-flex m-1 p-1 justify-content-center"
-                    style="height: 15%;"
+                    class="d-flex justify-content-center"
+                    style="height: 10%;"
                   >
                     <span id="windSpeedTag">7.90 </span>
                     <span>&nbsp;km/h</span>
@@ -178,11 +180,13 @@
                   class="d-flex flex-column border m-1 p-2 statusFont justify-content-between align-items-stretch"
                   style="height: 70%;"
                 >
-                  <div style="height: 15%;">Pressure</div>
-                  <div style="height: 60%;">Diagram</div>
+                  <div style="height: 10%;" class="mb-2">UV Index</div>
+                  <div style="height: 80%;">
+                    <canvas id="uvChart" style="width:100%;max-width:250px;height: 100%;"></canvas>
+                  </div>
                   <div
-                    class="d-flex m-1 p-1 justify-content-center"
-                    style="height: 15%;"
+                    class="d-flex justify-content-center"
+                    style="height: 10%;"
                   >
                     <span id="pressureTag">1026</span>
                     <span> &nbsp; PA</span>
@@ -214,7 +218,9 @@
                   style="height: 70%;"
                 >
                   <div style="height: 15%;">Sunrise & Sunset</div>
-                  <div style="height: 60%;">Diagram</div>
+                  <div style="height: 60%;">
+                    <canvas id="sunChart" style="width:100%;max-width:250px"></canvas>
+                  </div>
                   <div
                     class="d-flex m-1 p-1 justify-content-between"
                     style="height: 15%;"
@@ -249,6 +255,9 @@
       </div>
     </div>
     <script src="/src/script.js"></script>
+    <script
+src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
     <div style="text-align: center;">
 
       <a href="https://github.com/f-parsa/WeatherProject">Open-source code </a>by Fatemeh Parsa Seresht

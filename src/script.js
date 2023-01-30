@@ -24,7 +24,7 @@ function getDateAndTime(){
   let apiKey = "1dbf926d3b4417bf379db7043bec1047";
   
   function showInformation(response){
-    console.log(response);
+    // console.log(response);
     let cityTag = document.querySelector("#cityTag");
     let temperatureTag = document.querySelector("#temperatureTag");
     celcius = Math.round(response.data.main.temp);
@@ -67,19 +67,21 @@ function getDateAndTime(){
     pressureTag.innerHTML = response.data.main.pressure;
     
     getForecast(response.data.coord);
+    getChart(response.data.coord);
   }
+
   function formatDate(date){
     let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
     let day = new Date(date * 1000);
     return days[day.getDay()]; 
   }
 
+
   //Show Information of forecast days
   function showForecast(response){
     let forecastTag = document.querySelector("#forecastTag");
     
     let forecastDays = response.data.daily;
-    console.log(forecastDays);
     let forecastHtml ="";
     forecastDays.forEach(function (forecast, index){
       if (index < 5){
@@ -100,10 +102,78 @@ function getDateAndTime(){
   
   //get information of forecast days
   function getForecast(coordinates){
-    console.log(coordinates);
     let apiKey = "57b2c40fdae71a6ba41d72685e3226e2";
     let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=hourly,minutely&units=metric&appid=${apiKey}`;
     axios.get(apiURL).then(showForecast);
+    
+  }
+
+function formatHour(data){
+  let hours =[];
+  for (let i=0; i<5; i++){
+    let hour = new Date(data[i].dt * 1000);
+    hours[i] = hour.getHours();
+  }
+
+  return hours;
+
+}
+
+//Show Charts
+function showCharts(response){
+  console.log(response);
+  //windChart
+
+  var xValues = formatHour(response.data.hourly);
+  var yValuesWind = [];
+  for (let i=0 ; i<5 ; i++){
+    yValuesWind[i] = response.data.hourly[i].wind_speed;
+  }
+    var windChart = new Chart("windChart", {
+        type: "line",
+        data: {
+            labels: xValues,
+            datasets: [{ 
+              color: "rgba(255,255,255,0.7)",
+              borderColor: "rgba(255,255,255,0.5)",
+              data: yValuesWind
+              }]
+        },
+        options: {
+            legend:{
+              display: false
+            }
+        }
+      });
+  
+  let yValuesUV = [];
+  for (let i=0; i<5; i++){
+    yValuesUV[i] = response.data.hourly[i].uvi;
+  }
+
+  var uvChart = new Chart("uvChart", {
+    type: "line",
+    data: {
+        labels: xValues,
+        datasets: [{ 
+          color: "rgba(255,255,255,0.7)",
+          borderColor: "rgba(255,255,255,0.5)",
+          data: yValuesUV
+          }]
+    },
+    options: {
+        legend:{
+          display: false
+        }
+    }
+  });
+
+}
+
+//get charts Info
+  function getChart(coordinates){
+    let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude=daily,minutely&units=metric&appid=${apiKey}`;
+    axios.get(apiURL).then(showCharts)
     
   }
 
