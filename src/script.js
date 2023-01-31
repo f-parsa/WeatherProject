@@ -64,6 +64,7 @@ function getDateAndTime(){
     weatherIconTag.setAttribute("src", `http://openweathermap.org/img/wn/${iconNum}@2x.png`)
 
     let pressureTag = document.querySelector("#pressureTag");
+    console.log(response);
     pressureTag.innerHTML = response.data.main.pressure;
     
     getForecast(response.data.coord);
@@ -168,6 +169,8 @@ function showCharts(response){
     }
   });
 
+  initMap(response.data);
+
 }
 
 //get charts Info
@@ -235,9 +238,10 @@ function showCharts(response){
   //google map
   let map;
 
-  function initMap() {
+  function initMap(coordinates) {
+    console.log(coordinates.lat);
     map = new google.maps.Map(document.getElementById("map"), {
-      center: { lat: -34.397, lng: 150.644 },
+      center: { lat: coordinates.lat, lng: coordinates.lon },
       zoom: 8,
     });
   }
