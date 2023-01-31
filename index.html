@@ -116,16 +116,16 @@
               <span id="minTag">12°</span>
             </div>
             <div class="d-flex flex-fill border m-1 p-1">
-              2
+              
             </div>
             <div class="d-flex flex-fill border m-1 p-1">
-              3
+              
             </div>
             <div class="d-flex flex-fill border m-1 p-1">
-              4
+              
             </div>
             <div class="d-flex flex-fill border m-1 p-1">
-              5
+              
             </div>
           </div>
         </div>
@@ -218,14 +218,14 @@
                   style="height: 70%;"
                 >
                   <div style="height: 15%;">Sunrise & Sunset</div>
-                  <div style="height: 60%;">
-                    <canvas id="sunChart" style="width:100%;max-width:250px"></canvas>
+                  <div style="height: 70%;">
+                    <canvas id="" style="width:100%;max-width:250px;height: 100%;"></canvas>
                   </div>
                   <div
                     class="d-flex m-1 p-1 justify-content-between"
                     style="height: 15%;"
                   >
-                    <span id="sunriseTag">5.50 AM</span>
+                    <span id="sunriseTag"></span>
                     <span id="sunsetTag"></span>
                   </div>
                 </div>
@@ -248,8 +248,8 @@
             </div>
           </div>
           <div class="m-2 p-1">Weather Condition Map</div>
-          <div class="d-flex border m-2 p-1 w-99 h-50 blurPic">
-            <img src="/images/map.png" alt="Map" class="mapImage" />
+          <div class="d-flex border m-2 p-1 w-99 h-50 blurPic" id="map">
+            
           </div>
         </div>
       </div>
@@ -258,6 +258,10 @@
     <script
 src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
 </script>
+<script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuWt3h5qY2C0tk3ymHrUft4ED9UaaCgMo&callback=initMap&v=weekly"
+      defer
+    ></script>
     <div style="text-align: center;">
 
       <a href="https://github.com/f-parsa/WeatherProject">Open-source code </a>by Fatemeh Parsa Seresht
