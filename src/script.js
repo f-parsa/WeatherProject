@@ -186,6 +186,7 @@ function showCharts(response){
     let city = searchInput.value.toLowerCase().trim();    
     let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
     axios.get(apiURL).then(showInformation);
+    searchInput.value = "";
   }
   
   let searchForm = document.querySelector("#searchForm");
