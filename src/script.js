@@ -24,7 +24,6 @@ function getDateAndTime(){
   let apiKey = "1dbf926d3b4417bf379db7043bec1047";
   
   function showInformation(response){
-    // console.log(response);
     let cityTag = document.querySelector("#cityTag");
     let temperatureTag = document.querySelector("#temperatureTag");
     celcius = Math.round(response.data.main.temp);
@@ -64,11 +63,12 @@ function getDateAndTime(){
     weatherIconTag.setAttribute("src", `http://openweathermap.org/img/wn/${iconNum}@2x.png`)
 
     let pressureTag = document.querySelector("#pressureTag");
-    console.log(response);
     pressureTag.innerHTML = response.data.main.pressure;
     
+
     getForecast(response.data.coord);
     getChart(response.data.coord);
+    updateSun(response.data.sys);
   }
 
   function formatDate(date){
@@ -122,7 +122,6 @@ function formatHour(data){
 
 //Show Charts
 function showCharts(response){
-  console.log(response);
   //windChart
 
   var xValues = formatHour(response.data.hourly);
@@ -240,7 +239,6 @@ function showCharts(response){
   let map;
 
   function initMap(coordinates) {
-    console.log(coordinates.lat);
     map = new google.maps.Map(document.getElementById("map"), {
       center: { lat: coordinates.lat, lng: coordinates.lon },
       zoom: 8,
@@ -248,3 +246,13 @@ function showCharts(response){
   }
   
   window.initMap = initMap;
+
+var sun = document.querySelector('.sun');
+
+function updateSun(sys) {
+  let sunrise = new Date(sys.sunrise * 1000).getHours();
+  let sunset = new Date(sys.sunset * 1000).getHours();
+  let now = new Date().getHours();
+  var x = ((now - sunrise) / (sunset - sunrise)) * 180;
+  sun.style.transform="rotate("+x+"deg)"
+}

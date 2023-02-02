@@ -64,7 +64,7 @@
       <div class="d-flex background p-2 border width justify-content-between">
         <div
           class="d-flex flex-column align-items-stretch justify-content-between"
-          style="width: 30%;"
+          style="width: 30%"
         >
           <div class="d-flex blurPic flex-column m-2 p-1 border w-99 h-50">
             <div class="d-flex m-1 p-1 justify-content-around">
@@ -78,16 +78,18 @@
               </div>
               <div class="bold align-self-end position-relative">
                 <div id="temperatureTag">00</div>
-                <span class="position-absolute top-0 start-100 thin translate-middle"><a href="#" id="celciusTag" class="m-1 active">°C</a><a href="#" id="fahrenheitTag">°F</a></span>
+                <span
+                  class="position-absolute top-0 start-100 thin translate-middle"
+                  ><a href="#" id="celciusTag" class="m-1 active">°C</a
+                  ><a href="#" id="fahrenheitTag">°F</a></span
+                >
               </div>
             </div>
             <div class="d-flex ms-2 textFont" id="descriptionTag">
               description
             </div>
             <hr />
-            <div class="d-flex ms-2 textFont" id="cityTag">
-              city
-            </div>
+            <div class="d-flex ms-2 textFont" id="cityTag">city</div>
             <div class="d-flex m-1 p-1 textFont" id="currentDateTime"></div>
           </div>
           <form action="" id="searchForm">
@@ -96,7 +98,7 @@
                 type="text"
                 placeholder="Search"
                 id="searchText"
-                style="background: transparent; border: none; width: 90%;"
+                style="background: transparent; border: none; width: 90%"
                 autocomplete="off"
               />
               <input
@@ -108,31 +110,30 @@
               />
             </div>
           </form>
-          <div class="d-flex blurPic flex-column m-2 p-1 border w-99 h-50 forecastFont" id="forecastTag">
+          <div
+            class="d-flex blurPic flex-column m-2 p-1 border w-99 h-50 forecastFont"
+            id="forecastTag"
+          >
             <div class="d-flex justify-content-around flex-fill border m-1 p-1">
-              <img src="/images/weatherIcon.png" alt="weatherIcon1" class="weatherIcon">
+              <img
+                src="/images/weatherIcon.png"
+                alt="weatherIcon1"
+                class="weatherIcon"
+              />
               <span id="weekDay1">Thu</span>
               <span id="maxTag">18°</span>
               <span id="minTag">12°</span>
             </div>
-            <div class="d-flex flex-fill border m-1 p-1">
-              
-            </div>
-            <div class="d-flex flex-fill border m-1 p-1">
-              
-            </div>
-            <div class="d-flex flex-fill border m-1 p-1">
-              
-            </div>
-            <div class="d-flex flex-fill border m-1 p-1">
-              
-            </div>
+            <div class="d-flex flex-fill border m-1 p-1"></div>
+            <div class="d-flex flex-fill border m-1 p-1"></div>
+            <div class="d-flex flex-fill border m-1 p-1"></div>
+            <div class="d-flex flex-fill border m-1 p-1"></div>
           </div>
         </div>
 
         <div
           class="d-flex flex-column align-items-stretch justify-content-between"
-          style="width: 70%;"
+          style="width: 70%"
         >
           <div
             class="d-flex blurPic border m-2 p-1 w-99 h-50 justify-content-between"
@@ -143,15 +144,18 @@
               >
                 <div
                   class="d-flex flex-column border m-1 p-2 statusFont justify-content-between align-items-stretch"
-                  style="height: 70%;"
+                  style="height: 70%"
                 >
-                  <div style="height: 10%;" class="mb-2">wind status</div>
-                  <div style="height: 80%;">
-                    <canvas id="windChart" style="width:100%;max-width:250px;height: 100%;"></canvas>
+                  <div style="height: 10%" class="mb-2">wind status</div>
+                  <div style="height: 80%">
+                    <canvas
+                      id="windChart"
+                      style="width: 100%; max-width: 250px; height: 100%"
+                    ></canvas>
                   </div>
                   <div
                     class="d-flex justify-content-center"
-                    style="height: 10%;"
+                    style="height: 10%"
                   >
                     <span id="windSpeedTag">7.90 </span>
                     <span>&nbsp;km/h</span>
@@ -159,7 +163,7 @@
                 </div>
                 <div
                   class="d-flex border m-1 p-2 statusFont justify-content-between"
-                  style="height: 30%;"
+                  style="height: 30%"
                 >
                   <div class="d-flex flex-column justify-content-between">
                     <div>Humidity</div>
@@ -178,15 +182,18 @@
               >
                 <div
                   class="d-flex flex-column border m-1 p-2 statusFont justify-content-between align-items-stretch"
-                  style="height: 70%;"
+                  style="height: 70%"
                 >
-                  <div style="height: 10%;" class="mb-2">UV Index</div>
-                  <div style="height: 80%;">
-                    <canvas id="uvChart" style="width:100%;max-width:250px;height: 100%;"></canvas>
+                  <div style="height: 10%" class="mb-2">UV Index</div>
+                  <div style="height: 80%">
+                    <canvas
+                      id="uvChart"
+                      style="width: 100%; max-width: 250px; height: 100%"
+                    ></canvas>
                   </div>
                   <div
                     class="d-flex justify-content-center"
-                    style="height: 10%;"
+                    style="height: 10%"
                   >
                     <span id="pressureTag">1026</span>
                     <span> &nbsp; PA</span>
@@ -194,7 +201,7 @@
                 </div>
                 <div
                   class="d-flex border m-1 p-2 statusFont justify-content-between"
-                  style="height: 30%;"
+                  style="height: 30%"
                 >
                   <div class="d-flex flex-column justify-content-between">
                     <div>Visibility</div>
@@ -215,15 +222,15 @@
               >
                 <div
                   class="d-flex flex-column border m-1 p-2 statusFont justify-content-between align-items-stretch"
-                  style="height: 70%;"
+                  style="height: 70%"
                 >
-                  <div style="height: 15%;">Sunrise & Sunset</div>
-                  <div style="height: 70%;">
-                    <canvas id="" style="width:100%;max-width:250px;height: 100%;"></canvas>
+                  <div style="height: 15%">Sunrise & Sunset</div>
+                  <div style="height: 100px; width: 200px; overflow: hidden">
+                    <div class="sun"></div>
                   </div>
                   <div
                     class="d-flex m-1 p-1 justify-content-between"
-                    style="height: 15%;"
+                    style="height: 15%"
                   >
                     <span id="sunriseTag"></span>
                     <span id="sunsetTag"></span>
@@ -231,7 +238,7 @@
                 </div>
                 <div
                   class="d-flex border m-1 p-2 statusFont justify-content-between"
-                  style="height: 30%;"
+                  style="height: 30%"
                 >
                   <div class="d-flex flex-column justify-content-between">
                     <div>Feels Like</div>
@@ -248,23 +255,20 @@
             </div>
           </div>
           <div class="m-2 p-1">Weather Condition Map</div>
-          <div class="d-flex border m-2 p-1 w-99 h-50 blurPic" id="map">
-            
-          </div>
+          <div class="d-flex border m-2 p-1 w-99 h-50 blurPic" id="map"></div>
         </div>
       </div>
     </div>
     <script src="/src/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script
-src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
-</script>
-<script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuWt3h5qY2C0tk3ymHrUft4ED9UaaCgMo&callback=initMap&v=weekly"
       defer
     ></script>
-    <div style="text-align: center;">
-
-      <a href="https://github.com/f-parsa/WeatherProject" target="_blank">Open-source code </a>by Fatemeh Parsa Seresht
+    <div style="text-align: center">
+      <a href="https://github.com/f-parsa/WeatherProject" target="_blank"
+        >Open-source code </a
+      >by Fatemeh Parsa Seresht
     </div>
   </body>
 </html>
