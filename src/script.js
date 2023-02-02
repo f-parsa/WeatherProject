@@ -190,6 +190,12 @@ function showCharts(response){
   
   let searchForm = document.querySelector("#searchForm");
   searchForm.addEventListener("submit", getTemperature);
+
+
+  window.addEventListener("load", (event) => {
+    let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=tehran&units=metric&appid=${apiKey}`;
+    axios.get(apiURL).then(showInformation);
+  })
   
   //Get Current Position Info
   function handlePosition(position){
@@ -245,7 +251,7 @@ function showCharts(response){
     });
   }
   
-  window.initMap = initMap;
+window.initMap = initMap;
 
 var sun = document.querySelector('.sun');
 
@@ -253,6 +259,12 @@ function updateSun(sys) {
   let sunrise = new Date(sys.sunrise * 1000).getHours();
   let sunset = new Date(sys.sunset * 1000).getHours();
   let now = new Date().getHours();
-  var x = ((now - sunrise) / (sunset - sunrise)) * 180;
-  sun.style.transform="rotate("+x+"deg)"
+  if ( sunrise <= now && now <= sunset){
+    sun.style.display = "block";
+    var x = ((now - sunrise) / (sunset - sunrise)) * 180;
+    sun.style.transform = "rotate(" + x + "deg)";
+  }else
+  {
+    sun.style.display = "none";
+  }
 }
