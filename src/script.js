@@ -65,7 +65,7 @@ function getDateAndTime(){
     let pressureTag = document.querySelector("#pressureTag");
     pressureTag.innerHTML = response.data.main.pressure;
     
-
+    console.log(response);
     getForecast(response.data.coord);
     getChart(response.data.coord);
     updateSun(response.data.sys);
