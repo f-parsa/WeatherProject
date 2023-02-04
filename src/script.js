@@ -259,12 +259,9 @@ function updateSun(sys) {
   let sunrise = new Date(sys.sunrise * 1000).getHours();
   let sunset = new Date(sys.sunset * 1000).getHours();
   let now = new Date().getHours();
-  if ( sunrise <= now && now <= sunset){
+
     sun.style.display = "block";
     var x = ((now - sunrise) / (sunset - sunrise)) * 180;
     sun.style.transform = "rotate(" + x + "deg)";
-  }else
-  {
-    sun.style.display = "none";
-  }
+
 }
